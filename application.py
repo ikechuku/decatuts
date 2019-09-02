@@ -74,7 +74,7 @@ def check():
 @app.route("/login", methods=["GET", "POST"])
 def login():
     """Log user in"""
-
+    print("here we are")
     # Forget any user_id
     session.clear()
 
@@ -98,7 +98,7 @@ def login():
             return apology("invalid email and/or password", 403)
 
         # Remember which user has logged in
-        session["user_id"] = rows[0]["id"]
+        session["user_id"] = rows[0]["user_id"]
         session['email'] = rows[0]['email']
 
         # Redirect user to home page
