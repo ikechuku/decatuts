@@ -72,16 +72,20 @@ def schedule():
 
     # User reached route via POST (as by submitting a form via POST)
     elif request.method == "POST":
-        email = session
-        subject = request.form.get("subject")
-        tutor_gender = request.form.get("tutor_gender")
-        address = request.form.get("address")
+        days_of_week = request.form.get("days_of_week")
+        start_date = request.form.get("start_date")
+        # total = request.form.get("total")
+        duration = int(request.form.get("duration"))
+        hours_per_day = int(request.form.get("hours_per_day"))
+        
+        total = 1500 * hours_per_day * duration
 
-        print(subject, tutor_gender, address)
-        row = db.execute("INSERT INTO students (user_id, subject, tutor_gender, address) VALUES (:user_id, :subject, :tutor_gender, :address)", user_id=session['user_id'], subject=subject,tutor_gender=tutor_gender,address=address)
+        print(total)
+        row = db.execute("INSERT INTO schedule ( user_id, days_of_week, start_date, duration, hours_per_day, total) VALUES ( :user_id, :days_of_week, :start_date, :duration, :hours_per_day, :total)",user_id=session['user_id'], days_of_week=days_of_week,start_date=start_date,duration=duration, hours_per_day=hours_per_day, total=total)
 
         print(row)
         return redirect("/")  
+
 
 
 # 
