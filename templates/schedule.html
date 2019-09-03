@@ -1,0 +1,80 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Schedule
+{% endblock %}
+
+{% block main %}
+<!--  -->
+    <div class="container">
+            <div style="display: none" id="alert" class="alert alert-danger alert-dismissible fade show" role="alert">
+                    User already Exists
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+        <div class="row">
+            <div class="col-md-6 left">
+                <form id="schedule" action="/schedule" method="POST">
+                    <div class="form">
+                      <div class="col-md-4 mb-3 d-block">
+                        <label for="validationServer01">Subject</label>
+                        <input type="text" class="form-control is-invalid" id="firstname" placeholder="Subject" name="Subject" required>
+                      </div>
+                      
+                      <div class="form-group">
+                            <label for="validationServer03"></label>
+                        <select class="custom-select" name="selected" required>
+                          <option value="" selected disabled> ---select tutor gender ---</option>
+                          <option value="Male">Male</option>
+                          <option value="Female">Female</option>
+                          <option value="Any">No Preference</option>
+
+                        </select>
+                      </div>
+                      <div class="col-md-4 mb-3 d-block">
+                        <label for="validationServerUsername">Address</label>
+                        <div class="input-group">
+                          <div class="input-group-prepend">
+                          </div>
+                          <input type="text" class="form-control is-invalid" id="Address" placeholder="34 Admiralty way, Lekki" aria-describedby="inputGroupPrepend3" name="email" required>
+                        </div>
+                      </div>
+                    </div>
+                    <input class="btn btn-primary d-block" type="submit" value="Submit">
+                  </form>
+            </div>
+            <div class="col-md-6 right"></div>
+       
+        
+    </div>
+
+
+<script>
+    $("#schedule").submit(function (e) {
+        e.preventDefault();
+        console.log("where")
+        
+ 
+            let email= $("#email").val()
+            let password= $("#password").val()
+  
+
+            $.get("/check?email=" + email, function (data) {
+            if(data == false){
+                alert("FAIL")
+                let x = document.getElementById("alert");
+                x.style.display = "block";
+            }
+
+            else if(data== true){
+                alert("Successful");    
+                let x = document.getElementById("alert");
+                x.style.display = "block";
+                document.getElementById("schedule").submit();
+            }
+        });
+    });
+</script>
+
+{% endblock %}
