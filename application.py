@@ -84,7 +84,7 @@ def schedule():
         return redirect("/")  
 
 
-
+# 
 
 @app.route("/check", methods=["GET"])
 def check():
