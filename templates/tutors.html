@@ -1,0 +1,116 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Tutors
+{% endblock %}
+
+{% block main %}
+    <div style="display: none" id="alert" class="alert alert-danger alert-dismissible fade show" role="alert">
+        Teacher already Exists
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 left">
+                <form id="tutor" action="/tutors" method="POST">
+                    <div class="form">
+                      <div class="col-md-4 mb-3 d-block">
+                        <label for="validationServer01">Full name</label>
+                        <input type="text" class="form-control is-invalid" id="name" placeholder="Full name" name="name" required>
+                        <div class="valid-feedback">
+                          Looks good!
+                        </div>
+                      </div>
+                      <div class="col-md-4 mb-3 d-block">
+                        <label for="validationServerUsername">Email</label>
+                        <div class="input-group">
+                          <div class="input-group-prepend">
+                          </div>
+                          <input type="email" class="form-control is-invalid" id="email" placeholder="name@sample.com" aria-describedby="inputGroupPrepend3" name="email" required>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-row d-block">
+                      <div class="col-md-6 mb-3">
+                        <label for="validationServer03">Password</label>
+                        <input type="password" min=11 class="form-control is-invalid" id="password" placeholder="Password" name="password" required>
+                        
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <label for="validationServer03">Confirm Password</label>
+                        <input type="password" min=11 class="form-control is-invalid" id="confirmation" placeholder="confirmation" name= "confirmation" required>
+                        
+                      </div>
+                      <div class="col-md-3 mb-3 d-block">
+                        <label for="validationServer04">Phone Number</label>
+                        <input type="number" min="11" class="form-control is-invalid" id="phone" placeholder="phone number" name="phone" required>
+                      
+                      </div>
+                      
+                      <div class="form-group">
+                            <label for="validationServer03">Preferred Days of the Week</label>
+                        <select class="custom-select" name="selected" required>
+                          <option value="" selected disabled> ---select one ---</option>
+                          <option value="Monday">Monday</option>
+                          <option value="Tuesday">Tuesday</option>
+                          <option value="Wedneday">Wedneday</option>
+                          <option value="Thursday">Thursday</option>
+                          <option value="Friday">Friday</option>
+                          <option value="Saturday">Saturday</option>
+                          <option value="Sunday">Sunday</option>
+                        </select>
+                        <div class="invalid-feedback">Example invalid custom select feedback</div>
+                      </div>
+
+
+                    </div>
+                    <div class="form-group text-left">
+                      <div class="form-check">
+                        <input class="form-check-input is-invalid" type="checkbox" value="" id="checked" required>
+                        <label class="form-check-label" for="invalidCheck3">
+                          Agree to terms and conditions
+                        </label>
+                        <div class="invalid-feedback">
+                          You must agree before submitting.
+                        </div>
+                      </div>
+                    </div>
+                    <input class="btn btn-primary d-block" type="submit" value="Submit">
+                  </form>
+            </div>
+            <div class="col-md-6 right"></div>
+       
+        
+    </div>
+
+
+<script>
+    $("#tutor").submit(function (e) {
+        e.preventDefault();
+        let email= $("#email").val()
+        let password= $("#password").val()
+        let confirmation= $("#confirmation").val()
+
+        if(password !== confirmation){
+            alert("Passwords do not match");
+        }
+        else {
+            $.get("/check?email=" + email, function (data) {
+            if(data == false){
+                alert("Unsuccessful")
+                let x = document.getElementById("alert");
+                x.style.display = "block";   
+            }
+            else if(data== true){
+                alert("Successful");    
+                document.getElementById("tutor").submit();
+            }
+        });
+        }
+
+    });
+</script>
+
+{% endblock %}
