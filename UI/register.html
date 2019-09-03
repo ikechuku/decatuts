@@ -1,0 +1,212 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Decatuts Register</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="keywords"
+		content="Shadow Login Form template Responsive, Login form web template,Flat Pricing tables,Flat Drop downs  Sign up Web Templates, Flat Web Templates, Login sign up Responsive web template, SmartPhone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+	<script
+		type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+	<!-- Custom Theme files -->
+	<!-- for nav -->
+	<link href="img/favicon.ico" rel="shortcut icon" />
+
+	<!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Raleway:400,400i,500,500i,600,600i,700,700i,800,800i"
+		rel="stylesheet">
+
+	<!-- Stylesheets -->
+	<link rel="stylesheet" href="css/bootstrap.min.css" />
+	<link rel="stylesheet" href="css/font-awesome.min.css" />
+	<link rel="stylesheet" href="css/owl.carousel.css" />
+
+	<!-- endfornav -->
+
+	<link href="css/login.css" rel="stylesheet" type="text/css" media="all" />
+	<!-- //Custom Theme files -->
+	<!-- web font -->
+	<link href="//fonts.googleapis.com/css?family=Cormorant+Garamond:300,300i,400,400i,500,500i,600,600i,700,700i"
+		rel="stylesheet">
+	<link href="//fonts.googleapis.com/css?family=Arsenal:400,400i,700,700i" rel="stylesheet">
+	<!-- //web font -->
+
+
+	<link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+
+	<!-- Header section -->
+	<header class="header-section">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3 col-md-3">
+					<div class="site-logo">
+						<img src="img/logo.png" alt="">
+					</div>
+					<div class="nav-switch">
+						<i class="fa fa-bars"></i>
+					</div>
+				</div>
+				<div class="col-lg-9 col-md-9">
+					<a href="./login.html" class="site-btn header-btn">Login</a>
+					<nav class="main-menu">
+						<!-- <ul>
+								<li><a href="index.html">Home</a></li>
+								<li><a href="#">About us</a></li>
+								<li><a href="courses.html">Courses</a></li>
+								<li><a href="blog.html">News</a></li>
+								<li><a href="contact.html">Contact</a></li>
+							</ul> -->
+					</nav>
+				</div>
+			</div>
+		</div>
+	</header>
+	<!-- Header section end -->
+	<!-- <br> -->
+	<br>
+	<br>
+	<br>
+	<!-- <br> -->
+
+
+	<div class="main-agileinfo slider ">
+		<div class="items-group">
+			<div class="item agileits-w3layouts">
+				<div class="block text main-agileits">
+					<span class="circleLight"></span>
+					<!-- login form -->
+					<div class="login-form loginw3-agile">
+						<div class="agile-row">
+							<div class="login-agileits-top">
+								<form id="register" action="/register" method="POST">
+								
+										
+											<p>First Name</p>
+				
+											<input type="text" class="form-control is-invalid" id="firstname"
+												placeholder="" name="firstname" required>
+
+											<p>Last Name</p>
+			
+											<input type="text" class="form-control is-invalid" id="firstname"
+												placeholder="" name="firstname" required>
+											<div class="valid-feedback">
+												Looks good!
+											</div>
+											
+											
+
+											<p for="validationServerUsername">Email</p>
+											<div class="input-group">
+
+												<input type="email" class="form-control is-invalid" id="email"
+													placeholder="" aria-describedby="inputGroupPrepend3"
+													name="email" required>
+
+										</div>
+									</div>
+											<p for="validationServer03">Password</p>
+											<input type="password" min=11 class="pasword is-invalid" id="password"
+												placeholder="" name="password" required>
+
+											<p for="validationServer03">Confirm Password</p>
+											<input type="password" min=11 class="form-control is-invalid"
+												id="confirmation" placeholder="" name="confirmation"
+												required>
+
+											<p for="validationServer04">Phone Number</p>
+											<input type="number" min="11" class="form-control is-invalid" id="phone"
+												placeholder="" name="phone" required>
+
+
+										<div class="form-group">
+											<p for="validationServer03">How did you hear about us?</p>
+											<select class="custom-select" name="selected" required>
+												<option value="" selected disabled> ---select one ---</option>
+												<option value="Facebook">Facebook</option>
+												<option value="Twitter">Twitter</option>
+												<option value="Instagram">Instagram</option>
+												<option value="Friends">Friends</option>
+
+											</select>
+											<div class="invalid-feedback">Example invalid custom select feedback</div>
+										</div>
+
+
+									</div>
+									<div class="form-group text-left">
+										<div class="form-check">
+											<input class="form-check-input is-invalid" type="checkbox" value=""
+												id="checked" required>
+											<label class="form-check-label" for="invalidCheck3">
+												Agree to terms and conditions
+											</label>
+											<div hidden class="invalid-feedback">
+												You must agree before submitting.
+											</div>
+										</div>
+									</div>
+									<input class="btn btn-primary d-block" type="submit" value="Submit">
+								</form>
+							</div>
+							<div class="login-agileits-bottom wthree">
+								<h6><a href="#">Forgot password?</a></h6>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="w3lsfooteragileits">
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+	</div>
+	<script>
+		$("#register").submit(function (e) {
+			e.preventDefault();
+
+
+			let email = $("#email").val()
+			let password = $("#password").val()
+			let confirmation = $("#confirmation").val()
+
+
+			// console.log(selected)
+
+			if (password !== confirmation) {
+				alert("Passwords do not match");
+			}
+			else {
+				$.get("/check?email=" + email, function (data) {
+					if (data == false) {
+						alert("FAIL")
+						let x = document.getElementById("alert");
+						x.style.display = "block";
+
+					}
+
+					else if (data == true) {
+						alert("Successful");
+						document.getElementById("register").submit();
+					}
+				});
+			}
+
+		});
+	</script>
+</body>
+
+</html>
