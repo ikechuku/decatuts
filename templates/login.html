@@ -1,48 +1,63 @@
 {% extends "layout.html" %}
 
 {% block title %}
-    Register
+    Login
 {% endblock %}
 
 {% block main %}
-    <div style="display: none" id="alert" class="alert alert-danger alert-dismissible fade show" role="alert">
-        Invalid login details
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-        </button>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 left">
-                <form id="login" action="/login" method="POST">
-                    <div class="form">
-                      <div class="col-md-4 mb-3 d-block">
-                        <label for="validationServerUsername">Email</label>
-                        <div class="input-group">
-                          <div class="input-group-prepend">
-                          </div>
-                          <input type="email" class="form-control is-invalid" id="email" placeholder="name@sample.com" aria-describedby="inputGroupPrepend3" name="email" required>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="form-row d-block">
-                      <div class="col-md-6 mb-3">
-                        <label for="validationServer03">Password</label>
-                        <input type="password" min=11 class="form-control is-invalid" id="password" placeholder="Password" name="password" required>
-                        
-                      </div>
-                    </div>
-                    <input class="btn btn-primary d-block" type="submit" value="Submit">
-                  </form>
-            </div>
-            <div class="col-md-6 right"></div>
-       
-        
-    </div>
+<link rel="stylesheet" href="static/css/login.css" />
 
-
+	<br>
+	<br>
+	<br>
+	<br>
+	<div style="display: none" id="alert" class="alert alert-danger alert-dismissible fade show" role="alert">
+			Invalid login details
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+			</button>
+		</div>
+	<div class="flex-main">
+	<!-- main --> 
+	<div class="main-agileinfo slider ">
+			<div class="items-group">
+				<div class="item agileits-w3layouts">
+					<div class="block text main-agileits"> 
+						<span class="circleLight"></span> 
+						<!-- login form -->
+						<div class="login-form loginw3-agile"> 
+							<div class="agile-row">
+								<div class="login-agileits-top"> 	
+									<form id="login" action="/login" method="post"> 
+										<p>Email Address</p>
+										<input type="email" class="name" name="email" id="email" />
+										<p>Password</p>
+										<input type="password" class="password" name="password" id="password" />  
+										<label class="anim">
+											<input type="checkbox" class="checkbox">
+											<span> Remember me ?</span> 
+										</label>   
+										<input type="submit" value="Login"> 
+									</form> 	
+								</div> 
+								<div class="login-agileits-bottom wthree"> 
+									<h6><a href="#">Forgot password?</a></h6>
+								</div> 
+							</div>  
+						</div>   
+					</div>
+					<div class="w3lsfooteragileits">
+	
+					</div> 
+				</div>   
+			</div>
+		</div>	 
+		<!-- //main --> 
+	</div>
+<script src="static/js/jquery-3.2.1.min.js"></script>
+	
 <script>
-    $("#register").submit(function (e) {
+	 $("#login").submit(function (e) {
         e.preventDefault();
         
  
@@ -57,21 +72,20 @@
         }
         else {
             $.get("/check?email=" + email, function (data) {
-            if(data == false){
-                alert("FAIL")
+            if(data == true){
+                alert("Invalid email/password")
                 let x = document.getElementById("alert");
-                x.style.display = "block";
+               x.style.display = block;
                 
             }
 
-            else if(data== true){
-                alert("Successful");    
-                document.getElementById("register").submit();
+            else if(data== false){  
+                document.getElementById("login").submit();
             }
         });
         }
 
     });
-</script>
+	</script>
 
-{% endblock %}
+	{% endblock %}
