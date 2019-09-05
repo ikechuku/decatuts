@@ -46,17 +46,17 @@
 				<div class="col-lg-9 col-md-9">
 					{% if session.user_id %}
 
-					<a href="/login.html" class="site-btn header-btn">Login Out</a>
+					<a href="/login" class="site-btn header-btn">Log Out</a>
 					<nav class="main-menu">
 						<ul>
 							<li><a href="/index"></a></li>
 							<li><a href="/about">About </a></li>
 							<li><a href="/courses">Courses</a></li>
 							<li><a href="/contact">Contact</a></li>
-							<li class=" text-uppercase btn btn text-uppercase"><a class="nav-link" href="/index">
-									<span><img
-											src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcm1dLOb48o3pVleYwRg4TN5eB3le-aLaHXmtBLPDHfkRexlJfVA"
-											alt="" class="usr"></span>{{session['username']}}</a></li>
+							<li class=" btn"><a class="nav-link" href="#">
+									<span>
+										<!-- <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcm1dLOb48o3pVleYwRg4TN5eB3le-aLaHXmtBLPDHfkRexlJfVA"alt="" class="usr"> -->
+										{{session['email']}}	</span></a></li>
 						</ul>
 					</nav>
 					{% else %}
@@ -94,8 +94,8 @@
 		<div class="footer-bottom">
 			<div class="footer-warp">
 				<ul class="footer-menu">
-					<li><a href="#">Terms & Conditions</a></li>
-					<li><a href="#">Privacy Policy</a></li>
+					<li><a href="/terms">Terms & Conditions</a></li>
+					<li><a href="conditions">Privacy Policy</a></li>
 				</ul>
 				Decatuts &copy;
 				<script>document.write(new Date().getFullYear());</script>
