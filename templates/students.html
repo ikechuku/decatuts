@@ -1,0 +1,236 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Register
+{% endblock %}
+
+{% block main %}
+<div id="preloder">
+	<div class="loader"></div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="darkModalForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+	aria-hidden="true">
+	<div class="modal-dialog form-dark" role="document">
+		<!--Content-->
+		<div class="modal-content card card-image"
+			style="background-image: url('static/img/bg.jpg');">
+			<div class="text-white rgba-stylish-strong py-5 px-5 z-depth-4">
+				<!--Header-->
+				<div class="modal-header text-center pb-4">
+					<h3 class="modal-title w-100 white-text font-weight-bold" id="myModalLabel"><strong>Request</strong> <a
+							class="green-text font-weight-bold"><strong> Tutor</strong></a></h3>
+					<button type="button" class="close white-text" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<!--Body-->
+				<div class="modal-body">
+					<!--Body-->
+					<form id="students" action="/students" method="POST">
+						<div class="form">
+						  <div class="col-md-4 mb-3 d-block">
+							<label for="validationServer01">Subject</label>
+							<input type="text" class="form-control is-invalid" id="firstname" placeholder="Subject" name="subject" required>
+						  </div>
+						  
+						  <div class="form-group">
+								<label for="validationServer03"></label>
+							<select class="custom-select" name="tutor_gender" required>
+							  <option value="" selected disabled> ---select tutor gender ---</option>
+							  <option value="Male">Male</option>
+							  <option value="Female">Female</option>
+							  <option value="Any">No Preference</option>
+
+							</select>
+						  </div>
+						  <div class="col-md-4 mb-3 d-block">
+							<label for="validationServerUsername">Address</label>
+							<div class="input-group">
+							  <div class="input-group-prepend">
+							  </div>
+							  <input type="text" class="form-control is-invalid" id="Address" placeholder="34 Admiralty way, Lekki" aria-describedby="inputGroupPrepend3" name="address" required>
+							</div>
+						  </div>
+						</div>
+						<div class="text-center mb-3 col-md-12">
+								<input type="submit" class="btn site-btn btn-block btn-rounded z-depth-1" value="Request">
+							</div>
+					  </form>
+
+
+					<div class="row d-flex align-items-center mb-4">
+					</div>
+
+
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
+<!-- Modal -->
+
+<section class="hero-section set-bg" data-setbg="static/img/bg.jpg">
+	<div class="container">
+
+		<div class="container" style="padding-top:0%;">
+			<br>
+
+			<div class="site-breadcrumb text-white row">
+				<h2>Ongoing Classes</h2>
+				<div class=" w-5 p-1"></div>
+
+
+				<div class="text-center">
+					<a href="" class="w-8 p-3 site-btn " data-toggle="modal"
+						data-target="#darkModalForm">Get new tutor</a>
+				</div>
+
+
+
+			</div>
+			<br>
+
+			<div class="course-meta-area">
+				<div class="row">
+
+					<div class="col-lg-10 offset-lg-1">
+						<div class="course-note">ongoing</div>
+						<h3>Chemistry Tutorial</h3>
+						<div class="course-metas">
+							<div class="course-meta">
+								<div class="course-author">
+									<div class="ca-pic set-bg" data-setbg="static/img/tutors/2.jpg"></div>
+									<h6>Tutor</h6>
+									<p>William Parker, <span>Female</span></p>
+								</div>
+							</div>
+							<div class="course-meta">
+								<div class="cm-info">
+									<h6>Days</h6>
+									<p>Mon Wed Fri</p>
+								</div>
+							</div>
+							<div class="course-meta">
+								<div class="cm-info">
+									<h6>Hours</h6>
+									<p>2 hours</p>
+								</div>
+							</div>
+							<div class="course-meta">
+								<div class="cm-info">
+									<h6>start date</h6>
+									<p>2nd oct 2019 <span class="rating">
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="site-btn price-btn">Price: &#8358;45,000</div>
+						<div class="site-btn buy-btn">Cancel this Course</divref="#">
+						</div>
+					</div>
+				</div>
+			</div>
+
+</section>
+
+<section class="search-section ss-other-page">
+	<div class="container">
+		<div class="search-warp">
+			<div class="section-title text-white">
+			</div>
+			<div class="row">
+				<div class="col-lg-10 offset-lg-1">
+					<!-- search form -->
+					<form class="course-search-form">
+						<input type="text" class="btn-block last-m" placeholder="Category">
+						<button class="site-btn btn-dark">Search Couse</button>
+						<button class="site-btn site-btn">View all Courses </button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+<!-- <section class="spad">
+	<div class="container">
+		<div class="element">
+			<br>
+			<br>
+			<div class="row">
+				<div class="col-lg-4 col-md-6 icon-box text-center">
+					<h4>Tailored to your needs</h4><br>
+					<p>Learn conveniently <span>at your own pace. </span> Every lesson is tailored to strengthen the
+						student's weak areas and help them master any subject.</>
+				</div>
+				<div class="col-lg-4 col-md-6 icon-box text-center">
+					<h4>High quality tutors</h4><br>
+					<p>All tutors are <span> qualified professionals</span> experienced, thoroughly vetted, and have a
+						proven track record of producing excellent results.</p>
+				</div>
+				<div class="col-lg-4 col-md-6 icon-box text-center">
+					<h4>Safe and trusted</h4><br>
+					<p>Trusted by hundreds of happy parents, professionals and students with more than <strong>90%
+						</strong> success rate.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--====== Javascripts & Jquery ======-->
+<script src="static/js/jquery-3.2.1.min.js"></script>
+<!-- <script>
+			$("#student").submit(function (e) {
+				e.preventDefault();   
+				let subject = $("#subject").val()
+				let address = $("#address").val()
+				if(subject == "" || address == ""){
+				  alert("Fill required fields")
+				  let x = document.getElementById("alert");
+				  x.style.display = "block";
+				}
+				else{
+				  alert("Successful");    
+				  let x = document.getElementById("alert");
+				  x.style.display = "block";
+				  document.getElementById("students").submit();
+				}
+			});
+		</script> -->
+
+{% endblock %}

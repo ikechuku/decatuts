@@ -62,8 +62,6 @@ def students():
 
 
 
-
-
 @app.route("/schedule", methods=["GET", "POST"])
 @login_required
 def schedule():
