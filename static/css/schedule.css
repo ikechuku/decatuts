@@ -454,3 +454,28 @@ input.checkbox:checked:after {
 }
 /*-- //responsive-design --*/
 
+.flex-main {
+	display: grid;
+	grid-template-columns: 50% 40% ;
+	width: 100%;
+	/* background: #e91e63; */
+	margin: auto;
+	margin-top: 15%
+}
+
+.results {
+	/* width: 100%;
+	height: 100%;
+	position: relative; */
+	color: white;
+	/* background: #FFF; */
+}
+
+.form-section {
+	width: 100%;
+}
+
+.modal-dialog{
+	/* display: hidden; */
+}
+
