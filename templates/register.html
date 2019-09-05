@@ -5,124 +5,156 @@
 {% endblock %}
 
 {% block main %}
-    <div style="display: none" id="alert" class="alert alert-danger alert-dismissible fade show" role="alert">
-        User already Exists
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-        </button>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 left">
-                <form id="register" action="/register" method="POST">
-                    <div class="form">
-                      <div class="col-md-4 mb-3 d-block">
-                        <label for="validationServer01">First name</label>
-                        <input type="text" class="form-control is-invalid" id="firstname" placeholder="First name" name="firstname" required>
-                        <div class="valid-feedback">
-                          Looks good!
-                        </div>
-                      </div>
-                      <div class="col-md-4 mb-3 d-block">
-                        <label for="validationServer02">Last name</label>
-                        <input type="text" class="form-control is-invalid" id="lastname" placeholder="Last name"  required name="lastname">
-                        
-                      </div>
-                      <div class="col-md-4 mb-3 d-block">
-                        <label for="validationServerUsername">Email</label>
-                        <div class="input-group">
-                          <div class="input-group-prepend">
-                           
-                          </div>
-                          <input type="email" class="form-control is-invalid" id="email" placeholder="name@sample.com" aria-describedby="inputGroupPrepend3" name="email" required>
-                          
-                        </div>
-                      </div>
-                    </div>
-                    <div class="form-row d-block">
-                      <div class="col-md-6 mb-3">
-                        <label for="validationServer03">Password</label>
-                        <input type="password" min=11 class="form-control is-invalid" id="password" placeholder="Password" name="password" required>
-                        
-                      </div>
-                      <div class="col-md-6 mb-3">
-                        <label for="validationServer03">Confirm Password</label>
-                        <input type="password" min=11 class="form-control is-invalid" id="confirmation" placeholder="confirmation" name= "confirmation" required>
-                        
-                      </div>
-                      <div class="col-md-3 mb-3 d-block">
-                        <label for="validationServer04">Phone Number</label>
-                        <input type="number" min="11" class="form-control is-invalid" id="phone" placeholder="phone number" name="phone" required>
-                      
-                      </div>
-                      
-                      <div class="form-group">
-                            <label for="validationServer03">How did you hear about us?</label>
-                        <select class="custom-select" name="selected" required>
-                          <option value="" selected disabled> ---select one ---</option>
-                          <option value="Facebook">Facebook</option>
-                          <option value="Twitter">Twitter</option>
-                          <option value="Instagram">Instagram</option>
-                          <option value="Friends">Friends</option>
+<link rel="stylesheet" href="static/css/login.css" />
 
-                        </select>
-                        <div class="invalid-feedback">Example invalid custom select feedback</div>
-                      </div>
+	<br>
+	<br>
+	<br>
+	<!-- <br> -->
+	<div style="display: none" id="alert" class="alert alert-danger alert-dismissible fade show" role="alert">
+			Invalid login details
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+			</button>
+		</div>
+
+	<div class="main-agileinfo slider ">
+		<div class="items-group">
+			<div class="item agileits-w3layouts">
+				<div class="block text main-agileits">
+					<span class="circleLight"></span>
+					<!-- login form -->
+					<div class="login-form loginw3-agile">
+						<div class="agile-row">
+							<div class="login-agileits-top">
+								<form id="register" action="/register" method="POST">
+								
+										
+											<p>First Name</p>
+				
+											<input type="text" class="form-control is-invalid" id="firstname"
+												placeholder="" name="firstname" >
+
+											<p>Last Name</p>
+			
+											<input type="text" class="form-control is-invalid" id="firstname"
+												placeholder="" name="lastname" >
+											<div class="valid-feedback">
+												Looks good!
+											</div>
+											
+											
+
+											<p for="validationServerUsername">Email</p>
+											<div class="input-group">
+
+												<input type="email" class="form-control is-invalid" id="email"
+													placeholder="" aria-describedby="inputGroupPrepend3"
+													name="email" >
+
+										</div>
+									</div>
+											<p for="validationServer03">Password</p>
+											<input type="password" min=11 class="pasword is-invalid" id="password"
+												placeholder="" name="password" >
+
+											<p for="validationServer03">Confirm Password</p>
+											<input type="password" min=11 class="form-control is-invalid"
+												id="confirmation" placeholder="" name="confirmation"
+												>
+
+											<p for="validationServer04">Phone Number</p>
+											<input type="number" min="11" class="form-control is-invalid" id="phone"
+												placeholder="" name="phone" >
 
 
-                    </div>
-                    <div class="form-group text-left">
-                      <div class="form-check">
-                        <input class="form-check-input is-invalid" type="checkbox" value="" id="checked" required>
-                        <label class="form-check-label" for="invalidCheck3">
-                          Agree to terms and conditions
-                        </label>
-                        <div class="invalid-feedback">
-                          You must agree before submitting.
-                        </div>
-                      </div>
-                    </div>
-                    <input class="btn btn-primary d-block" type="submit" value="Submit">
-                  </form>
-            </div>
-            <div class="col-md-6 right"></div>
-       
-        
-    </div>
+										<div class="form-group">
+											<p for="validationServer03">How did you hear about us?</p>
+											<select class="custom-select" name="selected" id="selected" >
+												<option value="" selected disabled> ---select one ---</option>
+												<option value="Facebook">Facebook</option>
+												<option value="Twitter">Twitter</option>
+												<option value="Instagram">Instagram</option>
+												<option value="Friends">Friends</option>
+
+											</select>
+											<div class="invalid-feedback">Example invalid custom select feedback</div>
+										</div>
 
 
-<script>
-    $("#register").submit(function (e) {
-        e.preventDefault();
-        
- 
-            let email= $("#email").val()
-            let password= $("#password").val()
-            let confirmation= $("#confirmation").val()
-  
+									</div>
+									<div class="form-group text-left">
+										<div class="form-check">
+											<input class="form-check-input is-invalid" type="checkbox" value=""
+												id="checked" >
+											<label class="form-check-label" for="invalidCheck3">
+												Agree to terms and conditions
+											</label>
+											<div hidden class="invalid-feedback">
+												You must agree before submitting.
+											</div>
+										</div>
+									</div>
+									<input class="btn btn-primary d-block" type="submit" value="Submit">
+								</form>
+							</div>
+							<div class="login-agileits-bottom wthree">
+								<h6><a href="#">Forgot password?</a></h6>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="w3lsfooteragileits">
 
-        // console.log(selected)
+				</div>
+			</div>
+		</div>
+	</div>
 
-        if(password !== confirmation){
-            alert("Passwords do not match");
-        }
-        else {
-            $.get("/check?email=" + email, function (data) {
-            if(data == false){
-                alert("FAIL")
-                let x = document.getElementById("alert");
-                x.style.display = "block";
-                
-            }
+	</div>
+	<script src="static/js/jquery-3.2.1.min.js"></script>
+	
+	<script>
+		$("#register").submit(function (e) {
+			e.preventDefault();
 
-            else if(data== true){
-                alert("Successful");    
-                document.getElementById("register").submit();
-            }
-        });
-        }
 
-    });
-</script>
+			let email = $("#email").val()
+			let password = $("#password").val()
+			let confirmation = $("#confirmation").val()
+			let firstname = $("#firstname").val()
+			let lastname = $("#lastname").val()
+			let phone = $("#phone").val()
+			let selected = $("#selected").val()
 
+			if (email == "" || password=="" || confirmation =="" || firstname=="" || lastname=="" || phone=="" || selected =="" ){
+				alert("Fill in all required fields")
+						let x = document.getElementById("alert");
+						x.style.display = "block";
+			}
+			
+
+			// console.log(selected)
+
+			if (password !== confirmation) {
+				alert("Passwords do not match");
+			}
+			else {
+				$.get("/check?email=" + email, function (data) {
+					if (data == false) {
+						alert("User already Exists")
+						let x = document.getElementById("alert");
+						x.style.display = "block";
+
+					}
+
+					else if (data == true) {
+						alert("Successful");
+						document.getElementById("register").submit();
+					}
+				});
+			}
+
+		});
+	</script>
 {% endblock %}
