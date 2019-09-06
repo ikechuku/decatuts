@@ -126,14 +126,14 @@ def login():
 
         # Ensure email exists and password is correct
         if len(rows) != 1 or not check_password_hash(rows[0]["hash"], request.form.get("password")):
-            return apology("invalid email and/or password", 403)
+            return apology("incorrect email and/or password", 403)
 
         # Remember which user has logged in
         session["user_id"] = rows[0]["user_id"]
         session['email'] = rows[0]['email']
         session['firstname'] = rows[0]['lastname']
         # Redirect user to home page
-        return redirect("/")
+        return redirect("/students")
 
     # User reached route via GET (as by clicking a link or via redirect)
     else:
@@ -210,7 +210,7 @@ def tutor():
             return apology("must provide email", 400)
 
         rows = db.execute("SELECT * FROM users WHERE email = :email", email=email)
-        print("^^^^^the rows",len(rows))
+        # print("^^^^^the rows",len(rows))
         
         if len(rows)>0:
             return apology("User already exists", 400)

@@ -73,14 +73,16 @@ Register
 </div>
 <!-- Modal -->
 
-<section class="hero-section set-bg" data-setbg="static/img/bg.jpg">
+<section class="std set-bg" data-setbg="static/img/grey.png">
 	<div class="container">
 
 		<div class="container" style="padding-top:0%;">
 			<br>
 
-			<div class="site-breadcrumb text-white row">
-				<h2>Ongoing Classes</h2>
+			<div class="site-breadcrumb  text-white row">
+			<!-- <br><hr style="background-color: whitesmoke"> -->
+
+				<h2 class="text-center">Ongoing Classes</h2>
 				<div class=" w-5 p-1"></div>
 
 
@@ -92,13 +94,14 @@ Register
 
 
 			</div>
-			<br>
+			<br><hr style="background-color: whitesmoke">
+
 			{% for subject in subjects %}
-			<div class="course-meta-area">
+			<div class="course-meta-area text-white">
 				<div class="row">
 
 					<div class="col-lg-10 offset-lg-1">
-						<div class="course-note">ongoing</div>
+						<!-- <div class="course-note">ongoing</div> -->
 						<h3>{{subject['subject']}} Tutorial</h3>
 						<div class="course-metas">
 							<div class="course-meta">
@@ -134,59 +137,11 @@ Register
 					</div>
 				</div>
 			</div>
+			<br><hr style="background-color: whitesmoke">
+
 			{% endfor %}
 
 </section>
-
-<section class="search-section ss-other-page">
-	<div class="container">
-		<div class="search-warp">
-			<div class="section-title text-white">
-			</div>
-			<div class="row">
-				<div class="col-lg-10 offset-lg-1">
-					<!-- search form -->
-					<form class="course-search-form">
-						<input type="text" class="btn-block last-m" placeholder="Category">
-						<button class="site-btn btn-dark">Search Couse</button>
-						<button class="site-btn site-btn">View all Courses </button>
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
-
-
-<!-- <section class="spad">
-	<div class="container">
-		<div class="element">
-			<br>
-			<br>
-			<div class="row">
-				<div class="col-lg-4 col-md-6 icon-box text-center">
-					<h4>Tailored to your needs</h4><br>
-					<p>Learn conveniently <span>at your own pace. </span> Every lesson is tailored to strengthen the
-						student's weak areas and help them master any subject.</>
-				</div>
-				<div class="col-lg-4 col-md-6 icon-box text-center">
-					<h4>High quality tutors</h4><br>
-					<p>All tutors are <span> qualified professionals</span> experienced, thoroughly vetted, and have a
-						proven track record of producing excellent results.</p>
-				</div>
-				<div class="col-lg-4 col-md-6 icon-box text-center">
-					<h4>Safe and trusted</h4><br>
-					<p>Trusted by hundreds of happy parents, professionals and students with more than <strong>90%
-						</strong> success rate.</p>
-				</div>
-			</div>
-		</div>
-	</div>
-</section> -->
-
-
-
-
 
 
 

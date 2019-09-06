@@ -837,6 +837,7 @@ ol {
 
 .site-breadcrumb {
 	padding-top: 215px;
+	margin-left: 20%;
 }
 
 .site-breadcrumb a,
@@ -852,14 +853,14 @@ ol {
 	color: #fff;
 	position: relative;
 }
-
+/* 
 .site-breadcrumb a:after {
 	position: absolute;
 	content: "/";
 	right: -6px;
 	top: 0;
 	color: #fff;
-}
+} */
 
 .site-breadcrumb span {
 	color: #d82a4e;
@@ -870,8 +871,9 @@ ol {
 ---------------------*/
 
 .course-meta-area {
-	background: #edf4f6;
+	/* background: #edf4f6; */
 	padding: 35px 0;
+	border:black 5px;
 }
 
 .course-meta-area .course-note {
@@ -1743,4 +1745,9 @@ ol {
 	.contact-info-area .social-links a {
 		margin-right: 10px;
 	}
+}
+
+.std{
+background-repeat: repeat;
+background-size: auto !important;
 }

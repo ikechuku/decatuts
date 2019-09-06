@@ -50,25 +50,17 @@
 					<nav class="main-menu">
 						<ul>
 							<li><a href="/index"></a></li>
-							<li><a href="/about">About </a></li>
-							<li><a href="/courses">Courses</a></li>
-							<li><a href="/contact">Contact</a></li>
+						
 							<li class=" btn"><a class="nav-link" href="#">
 									<span>
 										<!-- <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcm1dLOb48o3pVleYwRg4TN5eB3le-aLaHXmtBLPDHfkRexlJfVA"alt="" class="usr"> -->
-										{{session['email']}}	</span></a></li>
+										Hello, {{session['firstname']}} {{session['lastname']}}	</span></a></li>
 						</ul>
 					</nav>
 					{% else %}
 					<a href="/register" class="site-btn header-btn">Register</a>
 					<nav class="main-menu">
-						<!-- <ul>
-							<li><a href="index.html"></a></li>
-							<li><a href="#">About us</a></li>
-							<li><a href="courses.html">Courses</a></li>
-							<li><a href="blog.html">News</a></li>
-							<li><a href="contact.html">0805000000</a></li>
-						</ul> -->
+						
 					</nav>
 					{% endif %}
 				</div>
@@ -89,21 +81,7 @@
 	{% block main %}
 	{% endblock %}
 
-	{% if session.user_id %}
-	<footer>
-		<div class="footer-bottom">
-			<div class="footer-warp">
-				<ul class="footer-menu">
-					<li><a href="/terms">Terms & Conditions</a></li>
-					<li><a href="conditions">Privacy Policy</a></li>
-				</ul>
-				Decatuts &copy;
-				<script>document.write(new Date().getFullYear());</script>
-			</div>
-		</div>
-		</div>
-	</footer>
-	{% endif %}
+
 	</body>
 	<!--====== Javascripts & Jquery ======-->
 	<script src="static/js/jquery-3.2.1.min.js"></script>
