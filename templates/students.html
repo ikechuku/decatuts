@@ -93,47 +93,48 @@ Register
 
 			</div>
 			<br>
-
+			{% for subject in subjects %}
 			<div class="course-meta-area">
 				<div class="row">
 
 					<div class="col-lg-10 offset-lg-1">
 						<div class="course-note">ongoing</div>
-						<h3>Chemistry Tutorial</h3>
+						<h3>{{subject['subject']}} Tutorial</h3>
 						<div class="course-metas">
 							<div class="course-meta">
 								<div class="course-author">
 									<div class="ca-pic set-bg" data-setbg="static/img/tutors/2.jpg"></div>
 									<h6>Tutor</h6>
-									<p>William Parker, <span>Female</span></p>
+									<p>{{subject['tutor']}} , <span>{{subject['tutor_gender']}} </span></p>
 								</div>
 							</div>
 							<div class="course-meta">
 								<div class="cm-info">
 									<h6>Days</h6>
-									<p>Mon Wed Fri</p>
+									<p>{{subject['days_of_week']}} </p>
 								</div>
 							</div>
 							<div class="course-meta">
 								<div class="cm-info">
 									<h6>Hours</h6>
-									<p>2 hours</p>
+									<p>{{subject['hours_per_day']}} </p>
 								</div>
 							</div>
 							<div class="course-meta">
 								<div class="cm-info">
 									<h6>start date</h6>
-									<p>2nd oct 2019 <span class="rating">
+									<p>{{subject['start_date']}} <span class="rating">
 									</p>
 								</div>
 							</div>
 						</div>
-						<div class="site-btn price-btn">Price: &#8358;45,000</div>
+						<div class="site-btn price-btn">Price: &#8358;{{subject['total']}} </div>
 						<div class="site-btn buy-btn">Cancel this Course</divref="#">
 						</div>
 					</div>
 				</div>
 			</div>
+			{% endfor %}
 
 </section>
 

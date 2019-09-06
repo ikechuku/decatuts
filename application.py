@@ -46,7 +46,10 @@ def index():
 def students():
     # User reached route via GET
     if request.method == "GET":
-        return render_template("students.html")
+        user=session['user_id']
+        row = db.execute("SELECT schedule.user_id, days_of_week, start_date, duration, hours_per_day, total, subject, tutor_gender, address FROM schedule JOIN students ON schedule.user_id = students.user_id WHERE schedule.user_id = :user", user=user)
+
+        return render_template("students.html", subjects = row)
 
     # User reached route via POST (as by submitting a form via POST)
     elif request.method == "POST":
@@ -57,7 +60,6 @@ def students():
         print(subject, tutor_gender, address)
         row = db.execute("INSERT INTO students (user_id, subject, tutor_gender, address) VALUES (:user_id, :subject, :tutor_gender, :address)", user_id=session['user_id'], subject=subject,tutor_gender=tutor_gender,address=address)
 
-        print(row)
         return redirect("/schedule")  
 
 
