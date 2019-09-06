@@ -192,6 +192,47 @@ def register():
     else:
         return render_template("register.html")
 
+
+@app.route("/tutors", methods=["GET", "POST"])
+def tutor():
+    """Register user"""
+    if request.method == "POST":
+        # get all input values and store in python variables
+        email = request.form.get("email")
+        password = request.form.get("password")
+        confirmation = request.form.get("confirmation")
+        name = request.form.get("name")
+        phone = request.form.get("phone")
+        day = request.form.get("selected")
+
+        print(email, password, confirmation, name, day)
+        if not email or email == "":
+            return apology("must provide email", 400)
+
+        rows = db.execute("SELECT * FROM users WHERE email = :email", email=email)
+        print("^^^^^the rows",len(rows))
+        
+        if len(rows)>0:
+            return apology("User already exists", 400)
+
+         # Ensure password was submitted
+        elif not password :
+            return apology("must provide password", 400)
+
+        if password!=confirmation:
+            return apology("Passwords do not match", 400)
+        
+        hashed_pwd = generate_password_hash(password, method='pbkdf2:sha256', salt_length=8)
+
+        # Insert into the  database
+        db.execute("INSERT INTO tutors (name, email, phone, day, hash)  VALUES (:name, :email, :phone, :day, :hash)", name=name, email=email, phone=phone, day=day, hash=hashed_pwd)
+        return redirect("/")      
+
+    else:
+        return render_template("tutors.html")
+
+
+
 def errorhandler(e):
     """Handle error"""
     if not isinstance(e, HTTPException):
