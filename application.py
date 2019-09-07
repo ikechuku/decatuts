@@ -47,7 +47,7 @@ def students():
     # User reached route via GET
     if request.method == "GET":
         user=session['user_id']
-        row = db.execute("SELECT schedule.user_id, days_of_week, start_date, duration, hours_per_day, total, subject, tutor_gender, address FROM schedule JOIN students ON schedule.user_id = students.user_id WHERE schedule.user_id = :user", user=user)
+        row = db.execute("SELECT * FROM schedule WHERE user_id = :user", user=user)
 
         return render_template("students.html", subjects = row)
 
@@ -69,23 +69,37 @@ def students():
 def schedule():
     # User reached route via GET
     if request.method == "GET":
-        return render_template("schedule.html")
+        subjects = db.execute("SELECT DISTINCT subject FROM tutors")
+        return render_template("schedule.html", subjects=subjects)
 
     # User reached route via POST (as by submitting a form via POST)
     elif request.method == "POST":
-        days_of_week = request.form.get("days_of_week")
-        start_date = request.form.get("start_date")
-        # total = request.form.get("total")
+        ll = request.form.getlist("check-box")
+        y = " "
+        for i in ll:
+            y+=i+" "
+            
+        days_of_week= " ".join(str(x) for x in ll)
+        # start_date = request.form.get("start_date")
         duration = int(request.form.get("duration"))
         hours_per_day = int(request.form.get("hours_per_day"))
-        
+        gender = request.form.get("gender")
+        subject = request.form.get("subject")
         total = 1500 * hours_per_day * duration
 
-        print(total)
-        row = db.execute("INSERT INTO schedule ( user_id, days_of_week, start_date, duration, hours_per_day, total) VALUES ( :user_id, :days_of_week, :start_date, :duration, :hours_per_day, :total)",user_id=session['user_id'], days_of_week=days_of_week,start_date=start_date,duration=duration, hours_per_day=hours_per_day, total=total)
+        print("total", total)
+        print("days_of_week", days_of_week)
+        # print("start_date" ,start_date)
+        print("duration" ,duration)
+        print("hours_per_day", hours_per_day)
+        print("gender" ,gender)
+        print("subject", subject)
+
+
+        row = db.execute("INSERT INTO schedule ( user_id, days_of_week, duration, hours_per_day, total, tutor_gender, subject) VALUES ( :user_id, :days_of_week, :duration, :hours_per_day, :total, :gender, :subject)",user_id=session['user_id'], days_of_week=days_of_week,duration=duration, hours_per_day=hours_per_day, total=total, gender=gender, subject=subject)
 
         print(row)
-        return redirect("/")  
+        return redirect("/students")  
 
  
 
