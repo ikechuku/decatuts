@@ -15,7 +15,68 @@ Schedule
 	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 	</button>
 </div>
-<div class="flex-main ">
+<div class="flex-main container">
+
+	<div class="">
+		<div class="modal-dialog form-dark" role="document">
+			<!--Content-->
+			<div class="modal-content card card-image" style="background-image: url('static/img/bg.jpg');">
+				<div class="text-white rgba-stylish-strong py-5 px-5 z-depth-4">
+					<!--Header-->
+					<div class="modal-header text-center pb-4">
+						<h3 class="modal-title w-100 white-text font-weight-bold" id="myModalLabel">
+							<strong>Request</strong> <a class="green-text font-weight-bold"><strong> Tutor</strong></a>
+						</h3>
+						<button type="button" class="close white-text" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<!--Body-->
+					<div class="modal-body">
+						<!--Body-->
+						<form id="schedule" action="/schedule" method="POST" >
+							<div class="form">
+								<div class="form-group">
+									<label for="validationServer03">Select subject</label>
+									<select class="custom-select" name="subject" required>
+										<option value="" selected disabled> </option>
+
+										{% for subject in subjects %}
+										<option value="{{subject["subject"]}}">{{subject["subject"]}}</option>
+										{% endfor %}
+
+
+									</select>
+								</div>
+
+								<label for=""><strong>Select preferred Tutor Gender</strong></label>
+								<br><br>
+
+								<div class="form-check">
+									<input type="radio" class="form-check-input" id="Male" value="Male" name="gender" required>
+									<label class="form-check-label" for="Male"> Male</label>
+									<br>
+									<input type="radio" class="form-check-input" id="Female" value="Female" name="gender">
+									<label class="form-check-label" for="Female">Female </label><br>
+									<input type="radio" class="form-check-input" id="any" value="any" name="gender" checked>
+									<label class="form-check-label" for="any">Any Gender is fine</label>
+								</div>
+
+							</div>
+
+
+							<div class="row d-flex align-items-center mb-4">
+							</div>
+
+
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+
 
 	<div class="main-agileinfo  ">
 		<div class="items-group">
@@ -31,7 +92,7 @@ Schedule
 								<div class="modal-header text-center pb-4">
 									<h2 class="modal-title w-100 white-text font-weight-bold" id="myModalLabel">
 										<strong>Lesson </strong> <a class="green-text font-weight-bold"><strong>
-												schedule</strong></a></h2>
+												Schedule</strong></a></h2>
 									<button type="button" class="close white-text" data-dismiss="modal"
 										aria-label="Close">
 									</button>
@@ -39,53 +100,56 @@ Schedule
 								<!--using modal Body-->
 								<div class="modal-body txt">
 
-									<form id="schedule" action="/schedule" method="POST"><br>
+									<!-- <form id="schedule" action="/schedule" method="POST"><br> -->
 										<label for=""><strong>What days do you want lessons to hold?</strong></label>
-
-<dir style="content: grid; grid-template-columns:35% 35% 35%;" class="">
-		<div class="form-check form-check-inline">	
-				<input class="form-check-input" type="checkbox" id="Monday"
-					value="Monday" name="check-box">
-				<label class="form-check-label" for="inlineCheckbox1">Monday</label>
-			</div>
-			<div class="form-check form-check-inline">
-				<input class="form-check-input" type="checkbox" id="Tuesday"
-					value="Tuesday" name="check-box">
-				<label class="form-check-label" for="Tuesday">Tuesday</label>
-			</div>
-			<div class="form-check form-check-inline">
-				<input class="form-check-input" type="checkbox" id="Wednesday"
-					value="Wednesday" name="check-box">
-				<label class="form-check-label" for="Wednesday">Wednesday</label>
-			</div>
-			<div class="form-check form-check-inline">
-				<input class="form-check-input" type="checkbox" id="Thursday"
-					value="Thursday" name="check-box">
-				<label class="form-check-label" for="inlineCheckbox2">Thursday</label>
-			</div>
-			<div class="form-check form-check-inline">
-				<input class="form-check-input" type="checkbox" id="Friday" value="Friday" name="check-box">
-				<label class="form-check-label" for="Friday">Friday</label>
-			</div>
-			<div class="form-check form-check-inline">
-				<input class="form-check-input" type="checkbox" id="Saturday"
-					value="Saturday" name="check-box">
-				<label class="form-check-label" for="Saturday">Saturday</label>
-			</div>
-			<div class="form-check form-check-inline">
-				<input class="form-check-input" type="checkbox" id="Sunday" value="Sunday" name="check-box">
-				<label class="form-check-label" for="Sunday">Sunday</label>
-			</div>
-
-</dir>
-
 										<br><br>
+
+										<div style="content: grid; grid-template-columns:35% 35% 35%;" class="">
+											<div class="form-check form-check-inline">
+												<input class="form-check-input" type="checkbox" id="Monday"
+													value="Mon" name="check-box">
+												<label class="form-check-label" for="Monday">Monday</label>
+											</div>
+											<div class="form-check form-check-inline">
+												<input class="form-check-input" type="checkbox" id="Tuesday"
+													value="Tue" name="check-box">
+												<label class="form-check-label" for="Tuesday">Tuesday</label>
+											</div>
+											<div class="form-check form-check-inline">
+												<input class="form-check-input" type="checkbox" id="Wednesday"
+													value="Wed" name="check-box">
+												<label class="form-check-label" for="Wednesday">Wednesday</label>
+											</div>
+											<div class="form-check form-check-inline">
+												<input class="form-check-input" type="checkbox" id="Thursday"
+													value="Thur" name="check-box">
+												<label class="form-check-label" for="Thursday">Thursday</label>
+											</div>
+											<div class="form-check form-check-inline">
+												<input class="form-check-input" type="checkbox" id="Friday"
+													value="Fri" name="check-box">
+												<label class="form-check-label" for="Friday">Friday</label>
+											</div>
+											<div class="form-check form-check-inline">
+												<input class="form-check-input" type="checkbox" id="Saturday"
+													value="Sat" name="check-box">
+												<label class="form-check-label" for="Saturday">Saturday</label>
+											</div>
+											<div class="form-check form-check-inline">
+												<input class="form-check-input" type="checkbox" id="Sunday"
+													value="Sun" name="check-box">
+												<label class="form-check-label" for="Sunday">Sunday</label>
+											</div>
+
+										</div>
+
+										<br>
 
 										<label for="validationServer03"> How many hours per day</label>
 										<br>
 										<br>
 										<select class="custom-select" id="hours" name="hours_per_day" required>
-											<option value="" selected disabled> ---select hours per day---
+											<option value="" selected disabled> 
 											</option>
 											<option value="1">1</option>
 											<option value="2">2</option>
@@ -99,9 +163,9 @@ Schedule
 											<div class="form">
 
 												<label for="validationServer03"> For how long?</label>
-												<br>
+												<br> <br>
 												<select class="custom-select" id="duration" name="duration" required>
-													<option value="" selected disabled> ---select duration ---
+													<option value="" selected disabled> 
 													</option>
 													<option value="1">1 week</option>
 													<option value="2">2 weeks</option>
@@ -113,8 +177,8 @@ Schedule
 												</select>
 											</div>
 										</div>
-										<input class="site-btn d-block txt" type="submit" id="next" value="Next">
-									</form>
+										<input class="site-btn d-block txt" type="submit" id="next" value="Calculate">
+									<!-- </form> -->
 
 
 									<div class="row d-flex align-items-center mb-4">
@@ -142,32 +206,30 @@ Schedule
 
 	<div class="results">
 		<div class="modal-dialog form-dark" role="document">
-				<!--Content-->
-				<div class="modal-content card card-image" style="background-image: url('static/img/bg.jpg');">
-					<div class="text-white py-5 px-5 z-depth-4">
-		<h2> </h2>
-								<strong>Total cost</h3>
-									<!--using modal Head style-->
+			<!--Content-->
+			<div class="modal-content card card-image" style="background-image: url('static/img/bg.jpg');">
+				<div class="text-white py-5 px-5 z-depth-4">
+					<h2> </h2>
+					<strong>Total cost</h3>
+						<!--using modal Head style-->
 						<div class="modal-header  pb-4">
 							<h3 class="modal-title text-left w-100 white-text font-weight-bold" id="myModalLabel">
-							<h1 id="result1">₦</h1>
+								<h1 id="result1">₦0.00</h1>
 						</div>
 						<!--using modal Body-->
 						<div class="modal-body txt-center">
-								
+
 							<br>
-								<input class="site-btn btn-success
-								" type="submit" value="Make Payment"> 
-			
-							<div class="row d-flex align-items-center mb-4">
-							</div>
+							<input class="btn btn-success" type="submit" value="Make Payment" >
+
+							
 
 
 						</div>
-					</div>
 				</div>
-
 			</div>
+
+		</div>
 
 	</div>
 	<!-- //main -->
@@ -179,20 +241,20 @@ Schedule
 <script>
 	// select date using date picker
 	// initialize datepicker
-//	<!-- $('.datepicker').pickadate(); -->
+	//	<!-- $('.datepicker').pickadate(); -->
 
 
-	$("#schedule").submit(function (e) {
+	$("#next").click(function (e) {
 		e.preventDefault();
 
 		let hours = $("#hours").val()
 		let duration = $("#duration").val()
 		let days = []
 
-		$('input[name="check-box"]:checked').each(function() {
+		$('input[name="check-box"]:checked').each(function () {
 			days.push(this.value)
 		});
-		
+
 		let num_of_days = days.length
 		console.log(days)
 
@@ -207,5 +269,7 @@ Schedule
 		}
 
 	});
+
+
 </script>
 {% endblock %}

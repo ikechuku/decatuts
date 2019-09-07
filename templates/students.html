@@ -10,69 +10,6 @@ Register
 </div>
 
 
-<!-- Modal -->
-<div class="modal fade" id="darkModalForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-	aria-hidden="true">
-	<div class="modal-dialog form-dark" role="document">
-		<!--Content-->
-		<div class="modal-content card card-image"
-			style="background-image: url('static/img/bg.jpg');">
-			<div class="text-white rgba-stylish-strong py-5 px-5 z-depth-4">
-				<!--Header-->
-				<div class="modal-header text-center pb-4">
-					<h3 class="modal-title w-100 white-text font-weight-bold" id="myModalLabel"><strong>Request</strong> <a
-							class="green-text font-weight-bold"><strong> Tutor</strong></a></h3>
-					<button type="button" class="close white-text" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				<!--Body-->
-				<div class="modal-body">
-					<!--Body-->
-					<form id="students" action="/students" method="POST">
-						<div class="form">
-						  <div class="col-md-4 mb-3 d-block">
-							<label for="validationServer01">Subject</label>
-							<input type="text" class="form-control is-invalid" id="firstname" placeholder="Subject" name="subject" required>
-						  </div>
-						  
-						  <div class="form-group">
-								<label for="validationServer03"></label>
-							<select class="custom-select" name="tutor_gender" required>
-							  <option value="" selected disabled> ---select tutor gender ---</option>
-							  <option value="Male">Male</option>
-							  <option value="Female">Female</option>
-							  <option value="Any">No Preference</option>
-
-							</select>
-						  </div>
-						  <div class="col-md-4 mb-3 d-block">
-							<label for="validationServerUsername">Address</label>
-							<div class="input-group">
-							  <div class="input-group-prepend">
-							  </div>
-							  <input type="text" class="form-control is-invalid" id="Address" placeholder="34 Admiralty way, Lekki" aria-describedby="inputGroupPrepend3" name="address" required>
-							</div>
-						  </div>
-						</div>
-						<div class="text-center mb-3 col-md-12">
-								<input type="submit" class="btn site-btn btn-block btn-rounded z-depth-1" value="Request">
-							</div>
-					  </form>
-
-
-					<div class="row d-flex align-items-center mb-4">
-					</div>
-
-
-				</div>
-			</div>
-		</div>
-
-	</div>
-</div>
-<!-- Modal -->
-
 <section class="std set-bg" data-setbg="static/img/grey.png">
 	<div class="container">
 
@@ -87,8 +24,7 @@ Register
 
 
 				<div class="text-center">
-					<a href="" class="w-8 p-3 site-btn " data-toggle="modal"
-						data-target="#darkModalForm">Get new tutor</a>
+					<a href="/schedule" class="w-8 p-3 site-btn " >Get new tutor</a>
 				</div>
 
 
@@ -108,31 +44,33 @@ Register
 								<div class="course-author">
 									<div class="ca-pic set-bg" data-setbg="static/img/tutors/2.jpg"></div>
 									<h6>Tutor</h6>
-									<p>{{subject['tutor']}} , <span>{{subject['tutor_gender']}} </span></p>
+									<p>{{subject['tutor_name']}} , <span>{{subject['tutor_gender']}} </span></p>
 								</div>
 							</div>
 							<div class="course-meta">
 								<div class="cm-info">
 									<h6>Days</h6>
-									<p>{{subject['days_of_week']}} </p>
+									<p>
+										{{subject['days_of_week'] }} </p>
 								</div>
 							</div>
 							<div class="course-meta">
-								<div class="cm-info">
-									<h6>Hours</h6>
-									<p>{{subject['hours_per_day']}} </p>
+									<div class="cm-info">
+										<h6>Hours per day</h6>
+										<p>{{subject['hours_per_day']}} </p>
+									</div>
 								</div>
-							</div>
 							<div class="course-meta">
 								<div class="cm-info">
-									<h6>start date</h6>
-									<p>{{subject['start_date']}} <span class="rating">
+									<h6>Total Cost </h6>
+									<p>₦{{subject["total"]}} <span class="rating">
 									</p>
 								</div>
 							</div>
+
 						</div>
-						<div class="site-btn price-btn">Price: &#8358;{{subject['total']}} </div>
-						<div class="site-btn buy-btn">Cancel this Course</divref="#">
+						<div class="site-btn price-btn">Change Schedule</div>
+						<div class="site-btn buy-btn">Cancel this Class</divref="#">
 						</div>
 					</div>
 				</div>
