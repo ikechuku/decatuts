@@ -37,7 +37,7 @@ Schedule
 							<div class="form">
 								<div class="form-group">
 									<label for="validationServer03">Select subject</label>
-									<select class="custom-select" name="subject" required>
+									<select class="custom-select" id="subject" name="subject" required>
 										<option value="" selected disabled> </option>
 
 										{% for subject in subjects %}
@@ -238,9 +238,7 @@ Schedule
 
 <script src="static/js/jquery-3.2.1.min.js"></script>
 <script>
-	// select date using date picker
-	// initialize datepicker
-	//	<!-- $('.datepicker').pickadate(); -->
+
 
 
 	$("#next").click(function (e) {
@@ -264,9 +262,8 @@ Schedule
 		}
 		else {
 			var total1 = "₦" + total;
-			$("#result1").text(total1);
+			$("#result1").text(total1+".00");
 		}
-
 	});
 
 
