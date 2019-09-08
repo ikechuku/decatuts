@@ -73,13 +73,14 @@ def schedule():
         return render_template("schedule.html", subjects=subjects)
 
     # User reached route via POST (as by submitting a form via POST)
-    elif request.method == "POST":
+    elif request.method == "POST":       
+       #get and space out the days of week
         ll = request.form.getlist("check-box")
-        y = " "
+        y = " "   #
         for i in ll:
             y+=i+" "
-            
         days_of_week= " ".join(str(x) for x in ll)
+
         # start_date = request.form.get("start_date")
         duration = int(request.form.get("duration"))
         hours_per_day = int(request.form.get("hours_per_day"))
@@ -109,15 +110,15 @@ def confirmation():
     # User reached route via GET
     if request.method == "GET":
         rows = db.execute("SELECT * FROM tutors WHERE subject = :subject", subject=request.args.get('subject', None))
-        
-        return render_template("confirmation.html", subjects=rows)
+        summary = db.execute("SELECT days_of_week, hours_per_day, total, subject FROM (SELECT * FROM schedule WHERE user_id = :id) WHERE id = (SELECT MAX(id) FROM schedule)", id = session['user_id'])
+        return render_template("confirmation.html", subjects=rows, summary=summary)
 
     # User reached route via POST (as by submitting a form via POST)
     elif request.method == "POST":
        
         tutor = request.form.get("tutor")
 
-        row = db.execute("INSERT INTO schedule (tutpr_name) VALUES ( :tutor)", tutor=tutor)
+        row = db.execute("INSERT INTO schedule (tutor_name) VALUES ( :tutor) into schedule WHERE id = SELECT id FROM (SELECT * FROM schedule WHERE user_id = id) WHERE id = (SELECT MAX(id) FROM schedule)",id=session["user_id"] tutor=tutor)
 
         print(row)
         return redirect("/confirmation")  
