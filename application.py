@@ -2,7 +2,7 @@ import os
 import datetime
 
 from cs50 import SQL
-from flask import Flask, flash, jsonify, redirect, render_template, request, session
+from flask import Flask, flash, jsonify, redirect, render_template, request, session, url_for
 from flask_session import Session
 from tempfile import mkdtemp
 from werkzeug.exceptions import default_exceptions, HTTPException, InternalServerError
@@ -99,7 +99,8 @@ def schedule():
         row = db.execute("INSERT INTO schedule ( user_id, days_of_week, duration, hours_per_day, total, tutor_gender, subject) VALUES ( :user_id, :days_of_week, :duration, :hours_per_day, :total, :gender, :subject)",user_id=session['user_id'], days_of_week=days_of_week,duration=duration, hours_per_day=hours_per_day, total=total, gender=gender, subject=subject)
 
         print(row)
-        return redirect("/confirmation")  
+        return redirect(url_for('confirmation', subject=request.form.get("subject")))
+        # return render_template("/confirmation", subject=request.form.get("subject"))  
 
 
 @app.route("/confirmation", methods=["GET", "POST"])
@@ -107,15 +108,16 @@ def schedule():
 def confirmation():
     # User reached route via GET
     if request.method == "GET":
-        subjects = db.execute("SELECT * FROM tutors")
-        return render_template("confirmation.html", subjects=subjects)
+        rows = db.execute("SELECT * FROM tutors WHERE subject = :subject", subject=request.args.get('subject', None))
+        
+        return render_template("confirmation.html", subjects=rows)
 
     # User reached route via POST (as by submitting a form via POST)
     elif request.method == "POST":
        
+        tutor = request.form.get("tutor")
 
-
-        row = db.execute("INSERT INTO schedule ( user_id, days_of_week, duration, hours_per_day, total, tutor_gender, subject) VALUES ( :user_id, :days_of_week, :duration, :hours_per_day, :total, :gender, :subject)",user_id=session['user_id'], days_of_week=days_of_week,duration=duration, hours_per_day=hours_per_day, total=total, gender=gender, subject=subject)
+        row = db.execute("INSERT INTO schedule (tutpr_name) VALUES ( :tutor)", tutor=tutor)
 
         print(row)
         return redirect("/confirmation")  
