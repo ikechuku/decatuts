@@ -1,0 +1,138 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Payment
+{% endblock %}
+
+{% block main %}
+<div id="preloder">
+	<div class="loader"></div>
+</div>
+
+
+<section class="std set-bg" data-setbg="static/img/grey.png">
+	<div class="container">
+
+		<div class="container" style="padding-top:0%;">
+			<br>
+
+			<div class="site-breadcrumb  text-white row">
+			<!-- <br><hr style="background-color: whitesmoke"> -->
+
+				<h2 class="text-center">Available {{subjects[0]["subject"]}} Tutors</h2>
+				
+
+
+			
+
+
+
+			</div>
+			<br><hr style="background-color: whitesmoke">
+			<div class="form-group">
+			  <label for="">Tutors </label>
+			  <select class="form-control" name="" id="">
+			{% for subject in subjects %}
+				
+			{% endfor %}
+
+				<option></option>
+				
+			  </select>
+			</div>
+			{% for subject in subjects %}
+			<div class="course-meta-area text-white">
+				<div class="row">
+
+					<div class="col-lg-10 offset-lg-1">
+						<!-- <div class="course-note">ongoing</div> -->
+						<h3>{{subject['tutor_name']}} </h3>
+						<div class="course-metas">
+							<div class="course-meta">
+								<div class="course-author">
+									<div class="ca-pic set-bg" data-setbg="static/img/tutors/2.jpg"></div>
+									<h6>{{subject['tutor_name']}}</h6>
+									<p> <span>{{subject['tutor_gender']}} </span></p>
+								</div>
+							</div>
+							<div class="course-meta">
+								<div class="cm-info">
+									<h6>Age</h6>
+									<p>
+										{{subject['age'] }} </p>
+								</div>
+							</div>
+							<div class="course-meta">
+									<div class="cm-info">
+										<h6>Qualifications</h6>
+										<p>{{subject['qualification']}}</p>
+									</div>
+								</div>
+							<div class="course-meta">
+								<div class="cm-info">
+									<h6>Phone Number</h6>
+									<p>+234-{{subject["phone"]}} <span class="rating">
+									</p>
+								</div>
+							</div>
+
+						</div>
+						<div class="site-btn price-btn">Change Schedule</div>
+						<div class="site-btn buy-btn">Cancel this Class</divref="#">
+						</div>
+					</div>
+				</div>
+			</div>
+			<br><hr style="background-color: whitesmoke">
+
+			{% endfor %}
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--====== Javascripts & Jquery ======-->
+<script src="static/js/jquery-3.2.1.min.js"></script>
+<!-- <script>
+			$("#student").submit(function (e) {
+				e.preventDefault();   
+				let subject = $("#subject").val()
+				let address = $("#address").val()
+				if(subject == "" || address == ""){
+				  alert("Fill required fields")
+				  let x = document.getElementById("alert");
+				  x.style.display = "block";
+				}
+				else{
+				  alert("Successful");    
+				  let x = document.getElementById("alert");
+				  x.style.display = "block";
+				  document.getElementById("students").submit();
+				}
+			});
+		</script> -->
+
+{% endblock %}
