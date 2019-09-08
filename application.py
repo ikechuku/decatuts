@@ -99,9 +99,27 @@ def schedule():
         row = db.execute("INSERT INTO schedule ( user_id, days_of_week, duration, hours_per_day, total, tutor_gender, subject) VALUES ( :user_id, :days_of_week, :duration, :hours_per_day, :total, :gender, :subject)",user_id=session['user_id'], days_of_week=days_of_week,duration=duration, hours_per_day=hours_per_day, total=total, gender=gender, subject=subject)
 
         print(row)
-        return redirect("/students")  
+        return redirect("/payment")  
 
- 
+
+@app.route("/payment", methods=["GET", "POST"])
+@login_required
+def payment():
+    # User reached route via GET
+    if request.method == "GET":
+        subjects = db.execute("SELECT * FROM tutors")
+        return render_template("payment.html", subjects=subjects)
+
+    # User reached route via POST (as by submitting a form via POST)
+    elif request.method == "POST":
+       
+
+
+        row = db.execute("INSERT INTO schedule ( user_id, days_of_week, duration, hours_per_day, total, tutor_gender, subject) VALUES ( :user_id, :days_of_week, :duration, :hours_per_day, :total, :gender, :subject)",user_id=session['user_id'], days_of_week=days_of_week,duration=duration, hours_per_day=hours_per_day, total=total, gender=gender, subject=subject)
+
+        print(row)
+        return redirect("/payment")  
+
 
 @app.route("/check", methods=["GET"])
 def check():
