@@ -41,26 +41,16 @@ def index():
     return render_template("index.html")
 
 
-@app.route("/students", methods=["GET", "POST"])
+@app.route("/students", methods=["GET"])
 @login_required
 def students():
     # User reached route via GET
     if request.method == "GET":
         user=session['user_id']
-        row = db.execute("SELECT * FROM schedule WHERE user_id = :user", user=user)
+        row = db.execute("SELECT * FROM schedule WHERE user_id = :user ORDER BY id DESC", user=user)
 
         return render_template("students.html", subjects = row)
 
-    # User reached route via POST (as by submitting a form via POST)
-    elif request.method == "POST":
-        subject = request.form.get("subject")
-        tutor_gender = request.form.get("tutor_gender")
-        address = request.form.get("address")
-
-        print(subject, tutor_gender, address)
-        row = db.execute("INSERT INTO students (user_id, subject, tutor_gender, address) VALUES (:user_id, :subject, :tutor_gender, :address)", user_id=session['user_id'], subject=subject,tutor_gender=tutor_gender,address=address)
-
-        return redirect("/schedule")  
 
 
 
@@ -118,10 +108,10 @@ def confirmation():
        
         tutor = request.form.get("tutor")
 
-        row = db.execute("INSERT INTO schedule (tutor_name) VALUES ( :tutor) into schedule WHERE id = SELECT id FROM (SELECT * FROM schedule WHERE user_id = id) WHERE id = (SELECT MAX(id) FROM schedule)",id=session["user_id"], tutor=tutor)
+        row = db.execute("UPDATE schedule SET tutor_name = :tutor WHERE id = (SELECT max(id) from (SELECT * FROM schedule WHERE user_id = :id))",id=session["user_id"], tutor=tutor)
 
         print(row)
-        return redirect("/confirmation")  
+        return redirect("/students")  
 
 
 @app.route("/check", methods=["GET"])
