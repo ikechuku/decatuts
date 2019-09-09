@@ -118,10 +118,10 @@ def confirmation():
        
         tutor = request.form.get("tutor")
 
-        row = db.execute("INSERT INTO schedule (tutor_name) VALUES ( :tutor) into schedule WHERE id = SELECT id FROM (SELECT * FROM schedule WHERE user_id = id) WHERE id = (SELECT MAX(id) FROM schedule)",id=session["user_id"], tutor=tutor)
+        row = db.execute("UPDATE schedule SET tutor_name = :tutor WHERE id = (SELECT max(id) from (SELECT * FROM schedule WHERE user_id = :id))",id=session["user_id"], tutor=tutor)
 
         print(row)
-        return redirect("/confirmation")  
+        return redirect("/students")  
 
 
 @app.route("/check", methods=["GET"])
