@@ -20,23 +20,23 @@ Schedule
 		<div class="modal-dialog form-dark" role="document">
 			<!--Content-->
 			<div class="modal-content card card-image" style="background-image: url('static/img/bg.jpg');">
-				<div class="text-white rgba-stylish-strong py-5 px-5 z-depth-4">
+				<div class="text-white rgba-stylish-strong rcard">
 					<!--Header-->
 					<div class="modal-header text-center pb-4">
 						<h3 class="modal-title w-100 white-text font-weight-bold" id="myModalLabel">
 							<strong>Request</strong> <a class="green-text font-weight-bold"><strong> Tutor</strong></a>
 						</h3>
-						<button type="button" class="close white-text" data-dismiss="modal" aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
+						<!-- <button type="button" class="close white-text" data-dismiss="modal" aria-label="Close">
+						</button> -->
 					</div>
 					<!--Body-->
 					<div class="modal-body">
 						<!--Body-->
+						<br>
 						<form id="schedule" action="/schedule" method="POST" >
 							<div class="form">
 								<div class="form-group">
-									<label for="validationServer03">Select subject</label>
+									<label for="validationServer03">Select subject</label> <br><br>
 									<select class="custom-select" id="subject" name="subject" required>
 										<option value="" selected disabled> </option>
 
@@ -74,8 +74,7 @@ Schedule
 
 		</div>
 	</div>
-
-
+	<div></div>
 
 	<div class="main-agileinfo  ">
 		<div class="items-group">
@@ -86,7 +85,7 @@ Schedule
 					<div class="modal-dialog form-dark" role="document">
 						<!--Content-->
 						<div class="modal-content card card-image" style="background-image: url('static/img/bg.jpg');">
-							<div class="text-white py-5 px-5 z-depth-4">
+							<div class="text-white rcard">
 								<!--using modal Head style-->
 								<div class="modal-header text-center pb-4">
 									<h2 class="modal-title w-100 white-text font-weight-bold" id="myModalLabel">
@@ -202,12 +201,12 @@ Schedule
 
 		</div>
 	</div>
-
+	<div></div>
 	<div class="results">
 		<div class="modal-dialog form-dark" role="document">
 			<!--Content-->
 			<div class="modal-content card card-image" style="background-image: url('static/img/bg.jpg');">
-				<div class="text-white py-5 px-5 z-depth-4">
+				<div class=" results text-white py-5 px-5 z-depth-4">
 					<h2> </h2>
 					<strong>Total cost</h3>
 						<!--using modal Head style-->
@@ -219,7 +218,7 @@ Schedule
 						<div class="modal-body txt-center">
 
 							<br>
-							<input class="btn btn-success" type="submit" value="Make Payment" >
+							<input class="btn btn-success" type="submit" value="Proceed" >
 
 							
 
