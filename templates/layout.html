@@ -36,9 +36,12 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-3 col-md-3">
-					<div class="site-logo">
-						<img src="static/img/logo.png" alt="">
-					</div>
+					<a href="/">
+						<div class="site-logo">
+							<img src="static/img/logo.png" alt="">
+						</div>
+					</a>
+					
 					<div class="nav-switch">
 						<i class="fa fa-bars"></i>
 					</div>
@@ -52,13 +55,13 @@
 							<li><a href="/index"></a></li>
 						
 							<li class=" btn"><a class="nav-link" href="#">
-									<span>
+									<span style="color:darkgray">
 										<!-- <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcm1dLOb48o3pVleYwRg4TN5eB3le-aLaHXmtBLPDHfkRexlJfVA"alt="" class="usr"> -->
-										Hello, {{session['firstname']}} {{session['lastname']}}	</span></a></li>
+										 {{session['firstname']}} {{session['lastname']}}	</span></a></li>
 						</ul>
 					</nav>
 					{% else %}
-					<a href="/login" class=" btn btn-outline-danger header-btn">Register</a>
+					<a href="/register" class=" btn btn-outline-danger header-btn">Register</a>
 
 					<nav class="main-menu">
 						

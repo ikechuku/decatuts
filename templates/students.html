@@ -17,17 +17,14 @@ Student
 			<br>
 
 			<div class="site-breadcrumb  text-white row">
-			<!-- <br><hr style="background-color: whitesmoke"> -->
 
 				<h2 class="text-center">Ongoing Classes</h2>
 				<div class=" w-5 p-1"></div>
 
 
-				<div class="text-center">
-					<a href="/schedule" class="w-8 p-3 site-btn " >Get new tutor</a>
+				<div class="">
+					<a href="/schedule" class="w-8 p-3 btn btn-outline-info btn-price" >new tutor</a>
 				</div>
-
-
 
 			</div>
 			<br><hr style="background-color: whitesmoke">
@@ -37,19 +34,18 @@ Student
 				<div class="row">
 
 					<div class="col-lg-10 offset-lg-1">
-						<!-- <div class="course-note">ongoing</div> -->
 						<h3>{{subject['subject']}} Tutorial</h3>
 						<div class="course-metas">
 							<div class="course-meta">
 								<div class="course-author">
 									<div class="ca-pic set-bg" data-setbg="static/img/tutors/2.jpg"></div>
-									<h6>Tutor</h6>
-									<p>{{subject['tutor_name']}} , <span>{{subject['tutor_gender']}} </span></p>
+									<h6 class="btn-danger">Tutor</h6>
+									<p>{{subject['tutor_name']}}  <span></span></p>
 								</div>
 							</div>
 							<div class="course-meta">
 								<div class="cm-info">
-									<h6>Days</h6>
+									<h6 >Days</h6>
 									<p>
 										{{subject['days_of_week'] }} </p>
 								</div>
@@ -69,15 +65,21 @@ Student
 							</div>
 
 						</div>
-						<div class="site-btn price-btn">Change Schedule</div>
-						<div class="site-btn buy-btn">Cancel this Class</divref="#">
+						<div class="btn btn-outline-dark text-white">View Progress</div>
 						</div>
 					</div>
-				</div>
 			</div>
-			<br><hr style="background-color: whitesmoke">
-
 			{% endfor %}
+
+		</div>
+			<br><hr style="background-color: whitesmoke">
+	</div>
+	<style>
+
+	h6,h3,h2{
+		color: red;
+	}
+	</style>
 
 </section>
 
