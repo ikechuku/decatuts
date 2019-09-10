@@ -20,13 +20,6 @@ Payment
 			<!-- <br><hr style="background-color: whitesmoke"> -->
 
 				<h2 class="text-center">Available {{subjects[0]["subject"]}} Tutors</h2>
-				
-
-
-			
-
-
-
 			</div>
 
 
@@ -69,7 +62,7 @@ Payment
 							</div>
 
 						</div>
-						<div class="btn btn-outline-danger btn-danger" data-toggle="modal" data-target="#darkModalForm" >Select this Tutor</divref="#">
+						<div class="btn btn-outline-danger btn-danger" data-toggle="modal" data-target="#darkModalForm" id="tutor1">Select this Tutor</divref="#">
 						</div>
 		</div>
 				</div>
@@ -137,7 +130,7 @@ Payment
 			  <select class="form-control" name="tutor" id="tutor">
 				<option value="" selected disabled></option>
 				{% for subject in subjects %}
-				<option>
+				<option selected>
 						{{subject['tutor_name']}}
 				</option>
 				
@@ -180,15 +173,6 @@ Payment
   </div>
 </div>
 <!-- Modal -->
-
-
-
-
-
-
-
-
-
 
 <!--====== Javascripts & Jquery ======-->
 <script src="static/js/jquery-3.2.1.min.js"></script>
