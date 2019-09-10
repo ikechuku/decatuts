@@ -86,22 +86,13 @@ def schedule():
         hours_per_day = int(request.form.get("hours_per_day"))
         gender = request.form.get("gender")
         subject = request.form.get("subject")
-        total = 1500 * hours_per_day * duration
 
-        print("total", total)
-        print("days_of_week", days_of_week)
-        # print("start_date" ,start_date)
-        print("duration" ,duration)
-        print("hours_per_day", hours_per_day)
-        print("gender" ,gender)
-        print("subject", subject)
-
+        num_of_days = len(days_of_week.split(' '))
+        total = 1500 * hours_per_day * duration * num_of_days
 
         row = db.execute("INSERT INTO schedule ( user_id, days_of_week, duration, hours_per_day, total, tutor_gender, subject) VALUES ( :user_id, :days_of_week, :duration, :hours_per_day, :total, :gender, :subject)",user_id=session['user_id'], days_of_week=days_of_week,duration=duration, hours_per_day=hours_per_day, total=total, gender=gender, subject=subject)
 
-        print(row)
-        return redirect(url_for('confirmation', subject=request.form.get("subject")))
-        # return render_template("/confirmation", subject=request.form.get("subject"))  
+        return redirect(url_for('confirmation', subject=request.form.get("subject"))) 
 
 
 @app.route("/confirmation", methods=["GET", "POST"])
@@ -130,7 +121,15 @@ def check():
     """Return true if email available, else false, in JSON format"""
 
     email =  request.args.get("email")
+    password =  request.args.get("password")
+
+    print(email, password)
     rows = db.execute("SELECT 1 FROM users WHERE email = :email", email=email)
+
+    # Ensure email exists and password is correct
+    # if len(rows) != 1 or not check_password_hash(rows[0]["hash"], request.form.get("password")):
+    #     return apology("incorrect email and/or password", 403)
+
     if len(rows) > 0:
         return jsonify(False)
 

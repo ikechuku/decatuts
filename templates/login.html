@@ -63,15 +63,12 @@
  
             let email= $("#email").val()
             let password= $("#password").val()
-  
-
-        // console.log(selected)
 
         if (email == ""){
             alert("Enter valid email");
         }
         else {
-            $.get("/check?email=" + email, function (data) {
+            $.get("/check?email=" + email + "&password="+password, function (data) {
             if(data == true){
                 alert("Invalid email/password")
                 let x = document.getElementById("alert");
